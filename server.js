@@ -9,6 +9,11 @@ const api = require('./server/routes/api');
 
 const app = express();
 
+app.use(function(req,res,next){
+    res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers','authorization');
+        next();
+    });
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,7 +32,7 @@ app.get('*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '3070';
+const port = '3070';
 app.set('port', port);
 
 /**
