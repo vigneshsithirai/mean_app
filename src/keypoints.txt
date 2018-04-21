@@ -1,0 +1,15 @@
+Fo Dialog we should add,
+    providers: [MatDialogConfig] in app module.
+
+For Reactive for,
+    For custom validators add import { AbstractControl } from '@angular/forms'; and extent
+    static validateCharacters(control: AbstractControl) {}
+
+    For every material in put we should add currospondinf module in app module.
+
+For Material/Flex,
+    import in app module
+
+https://alligator.io/angular/reactive-forms-custom-validator/
+https://medium.com/@luukgruijs/validating-reactive-forms-with-default-and-custom-form-field-validators-in-angular-5586dc51c4ae
+https://freshdesignweb.com/css-registration-form-templates/
