@@ -16,12 +16,12 @@ export class DialogDemoComponent implements OnInit {
   openDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    // dialogConfig.autoFocus = true;
     const dialogRef: MatDialogRef<MyDialogComponent> = this.dialog.open(MyDialogComponent, {
-      width: '250px',
+      // width: '250px',
       data: 'This text is passed into the dialog!',
-      autoFocus: true,
-      disableClose: true
+      // autoFocus: true,
+      // disableClose: true
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog closed: ${result}`);
