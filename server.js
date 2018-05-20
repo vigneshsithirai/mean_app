@@ -4,22 +4,27 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+const passport = require('passport');
 // Get our API routes
 const api = require('./server/routes/api');
 
+require('./server/config/passport');
+
 const app = express();
 
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Headers','authorization');
-        next();
-    });
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
+
+app.use(passport.initialize());
 
 // Set our api routes
 app.use('/api', api);

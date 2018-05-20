@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/myappdatabase');
 
 var User = require('../models/user');
+var passport = require('passport');
+var authendication = require('../controller/authendication');
 
 /* GET api listing. */
 router.get('/', (req, res) => {
@@ -16,11 +18,11 @@ router.get('/', (req, res) => {
 });
 
 // create a new user called chris
-var chris = new User({
-    name: 'Chris',
-    username: 'sevilayha2',
-    password: 'password' 
-  });
+// var chris = new User({
+//     name: 'Chris',
+//     username: 'sevilayha2',
+//     password: 'password' 
+//   });
 
 // Get all posts
 router.get('/posts', (req, res) => {
@@ -50,5 +52,13 @@ router.get('/posts', (req, res) => {
             res.status(500).send(error)
         });
 });
+
+router.post('/signup', (req, res) => {
+    authendication.register(req, res);
+});
+
+router.post('/login', (req, res) => {
+    authendication.login(req, res);
+})
 
 module.exports = router;
