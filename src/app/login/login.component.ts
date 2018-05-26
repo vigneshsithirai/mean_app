@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomValidators } from '../common/custom_form_validator';
 import { LoginService } from './../services/login.service';
 
@@ -11,7 +12,11 @@ import { LoginService } from './../services/login.service';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-  constructor(public form: FormBuilder, public loginService: LoginService) { }
+  constructor(
+    private router: Router,
+    public form: FormBuilder,
+    public loginService: LoginService
+  ) { }
 
   ngOnInit() {
     this.buildLoginForm();
@@ -29,6 +34,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.loginForm.value).subscribe(data => {
         if (data && data.token) {
           localStorage.setItem('token', data.token);
+          this.router.navigateByUrl('/home');
         }
       });
     }

@@ -3,10 +3,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, CanActivate } from '@angular/router';
 import {
   MatInputModule, MatDialogModule, MatButtonModule, MatCardModule, MatDialogConfig, MatRadioModule,
-  MatDatepickerModule, MatNativeDateModule
+  MatDatepickerModule, MatNativeDateModule, MatSidenavModule,
+  MatToolbarModule, MatIconModule, MatIconRegistry
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -15,6 +17,8 @@ import { PostsComponent } from './posts/posts.component';
 
 import { PostsService } from './posts.service';
 import { LoginService } from './services/login.service';
+import { AuthenticationService } from './services/authentication.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { HomeComponent } from './home/home.component';
 import { AlertComponent } from './alert/alert.component';
@@ -23,13 +27,14 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { FormvalidationComponent } from './formvalidation/formvalidation.component';
 import { SampleComponent } from './sample/sample.component';
 import { LoginComponent } from './login/login.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 
 // Define the routes
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'signup',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -38,7 +43,8 @@ const ROUTES = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'sample',
@@ -63,7 +69,8 @@ const ROUTES = [
     DialogDemoComponent,
     MyDialogComponent,
     FormvalidationComponent,
-    SampleComponent
+    SampleComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
@@ -72,16 +79,22 @@ const ROUTES = [
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpModule,
+    HttpClientModule,
     MatDialogModule, MatButtonModule, MatCardModule, MatInputModule, MatRadioModule,
-    MatDatepickerModule, MatNativeDateModule,
+    MatDatepickerModule, MatNativeDateModule, MatSidenavModule,
+    MatToolbarModule, MatIconModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
   providers: [
     PostsService,
     LoginService,
+    AuthenticationService,
+    AuthGuardService,
     MatDialogConfig,
   ], // Add the posts service
   bootstrap: [AppComponent],
   entryComponents: [MyDialogComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private matIconRegistry: MatIconRegistry) { }
+}
