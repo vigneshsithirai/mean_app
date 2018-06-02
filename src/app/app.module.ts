@@ -1,3 +1,4 @@
+import { routing } from './main.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
@@ -21,6 +22,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
 import { HomeComponent } from './home/home.component';
+import { PublicComponent } from './public/public.component';
 import { AlertComponent } from './alert/alert.component';
 import { DialogDemoComponent } from './dialog-demo/dialog-demo.component';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
@@ -31,37 +33,38 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 
 
 // Define the routes
-const ROUTES = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'posts',
-    component: PostsComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'sample',
-    component: SampleComponent
-  },
-  {
-    path: 'signup',
-    component: FormvalidationComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  }
-];
+// const ROUTES = [
+//   {
+//     path: '',
+//     redirectTo: 'login',
+//     pathMatch: 'full'
+//   },
+//   {
+//     path: 'posts',
+//     component: PostsComponent
+//   },
+//   {
+//     path: 'home',
+//     component: HomeComponent,
+//     canActivate: [AuthGuardService]
+//   },
+//   {
+//     path: 'sample',
+//     component: SampleComponent
+//   },
+//   {
+//     path: 'signup',
+//     component: FormvalidationComponent
+//   },
+//   {
+//     path: 'login',
+//     component: LoginComponent
+//   }
+// ];
 @NgModule({
   declarations: [
     AppComponent,
+    PublicComponent,
     LoginComponent,
     PostsComponent,
     HomeComponent,
@@ -73,6 +76,7 @@ const ROUTES = [
     SideNavComponent
   ],
   imports: [
+    routing,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -83,7 +87,7 @@ const ROUTES = [
     MatDialogModule, MatButtonModule, MatCardModule, MatInputModule, MatRadioModule,
     MatDatepickerModule, MatNativeDateModule, MatSidenavModule,
     MatToolbarModule, MatIconModule,
-    RouterModule.forRoot(ROUTES) // Add routes to the app
+    // RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
   providers: [
     PostsService,
@@ -92,7 +96,7 @@ const ROUTES = [
     AuthGuardService,
     MatDialogConfig,
   ], // Add the posts service
-  bootstrap: [AppComponent],
+  bootstrap: [PublicComponent],
   entryComponents: [MyDialogComponent]
 })
 export class AppModule {

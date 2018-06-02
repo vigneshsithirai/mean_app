@@ -1,1 +1,31 @@
-<router-outlet></router-outlet>
+<div class="example-container">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="example-app-name">Responsive App</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container">
+        <mat-sidenav id="sidebar-wrapper" #snav [mode]='over'>
+            <mat-nav-list class="sidebar-nav">
+                <div>
+                    <a fxLayout="row" fxLayoutAlign="space-evenly center" routerLink="/home">
+                        <mat-icon>home</mat-icon>
+                        <span>Home</span>
+                    </a>
+                </div>
+                <div>
+                    <a fxLayout="row" fxLayoutAlign="space-evenly center" (click)="navigateMenu()">
+                        <mat-icon>power_settings_new</mat-icon>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

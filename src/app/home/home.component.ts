@@ -8,8 +8,8 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public inputVar:string;
-  public eventReciv: number = 0;
+  public inputVar: string;
+  public eventReciv: any = 0;
   @ViewChild(AlertComponent) alertComponent: AlertComponent;
   constructor(@Inject(forwardRef(() => AppComponent)) private _parent: AppComponent) {
     this._parent.title = 'title changed';
