@@ -5,6 +5,7 @@ import { AuthGuardService } from '../services/auth-guard.service';
 import { SampleComponent } from '../sample/sample.component';
 import { FormvalidationComponent } from '../formvalidation/formvalidation.component';
 import { LoginComponent } from '../login/login.component';
+import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,10 @@ export const routes: Routes = [
     {
         path: 'sample',
         component: SampleComponent
+    },
+    {
+        path: 'Customers',
+        component: CustomerDetailsComponent,
+        canActivate: [AuthGuardService]
     }
 ];

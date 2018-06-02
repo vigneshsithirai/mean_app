@@ -35,14 +35,14 @@ export class AuthenticationService {
   }
 
   private getToken(): string {
-    if (!this.token) {
-      this.token = localStorage.getItem('token');
+    let token = null;
+    if (localStorage.getItem('token')) {
+      token = localStorage.getItem('token');
     }
-    return this.token;
+    return token;
   }
 
   public logout(): void {
-    this.token = '';
     window.localStorage.removeItem('token');
     this.router.navigateByUrl('/');
   }

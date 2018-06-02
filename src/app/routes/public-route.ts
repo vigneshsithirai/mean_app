@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { FormvalidationComponent } from '../formvalidation/formvalidation.component';
 import { LoginComponent } from '../login/login.component';
+import { PublicRouteGaurdService } from '../services/public-route-gaurd.service';
 
 export const PUBLIC_ROUTES: Routes = [
     {
@@ -10,10 +11,12 @@ export const PUBLIC_ROUTES: Routes = [
     },
     {
         path: 'signup',
-        component: FormvalidationComponent
+        component: FormvalidationComponent,
+        canActivate: [PublicRouteGaurdService]
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [PublicRouteGaurdService]
     }
 ];

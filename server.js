@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 // Get our API routes
 const api = require('./server/routes/api');
+const cust = require('./server/routes/customers');
 
 require('./server/config/passport');
 
@@ -28,7 +29,9 @@ app.use(passport.initialize());
 
 // Set our api routes
 app.use('/api', api);
-
+app.use('/customers', cust);
+// app.use(app.router);
+// routes.initialize(app);
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));

@@ -20,6 +20,9 @@ import { PostsService } from './posts.service';
 import { LoginService } from './services/login.service';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { PublicRouteGaurdService } from './services/public-route-gaurd.service';
+import { CustomerDetailsService } from './services/customer-details.service';
+
 
 import { HomeComponent } from './home/home.component';
 import { PublicComponent } from './public/public.component';
@@ -30,37 +33,10 @@ import { FormvalidationComponent } from './formvalidation/formvalidation.compone
 import { SampleComponent } from './sample/sample.component';
 import { LoginComponent } from './login/login.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 
-// Define the routes
-// const ROUTES = [
-//   {
-//     path: '',
-//     redirectTo: 'login',
-//     pathMatch: 'full'
-//   },
-//   {
-//     path: 'posts',
-//     component: PostsComponent
-//   },
-//   {
-//     path: 'home',
-//     component: HomeComponent,
-//     canActivate: [AuthGuardService]
-//   },
-//   {
-//     path: 'sample',
-//     component: SampleComponent
-//   },
-//   {
-//     path: 'signup',
-//     component: FormvalidationComponent
-//   },
-//   {
-//     path: 'login',
-//     component: LoginComponent
-//   }
-// ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +49,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MyDialogComponent,
     FormvalidationComponent,
     SampleComponent,
-    SideNavComponent
+    SideNavComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     routing,
@@ -94,6 +71,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     LoginService,
     AuthenticationService,
     AuthGuardService,
+    PublicRouteGaurdService,
+    CustomerDetailsService,
     MatDialogConfig,
   ], // Add the posts service
   bootstrap: [PublicComponent],

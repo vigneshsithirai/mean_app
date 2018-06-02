@@ -6,9 +6,10 @@ const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/myappdatabase');
+mongoose.connect('mongodb://localhost/Northwind');
 
 var User = require('../models/user');
+require('../models/customers');
 var passport = require('passport');
 var authendication = require('../controller/authendication');
 
