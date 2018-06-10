@@ -1,3 +1,13 @@
-<p>
-  customer-details works!
-</p>
+
+<table>
+  <tr>
+    <th>CustomerID</th>
+    <th>CompanyName</th>
+    <th>Phone</th>
+  </tr>
+  <tr *ngFor="let customer of customerDetails">
+    <td>{{customer.CustomerID}}</td>
+    <td>{{customer.CompanyName}}</td>
+    <td>{{customer.Phone}}</td>
+  </tr>
+</table>

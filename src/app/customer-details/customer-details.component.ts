@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerDetailsService } from './../services/customer-details.service';
 
 @Component({
   selector: 'app-customer-details',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  constructor() { }
+  public customerDetails: object;
+  constructor(public customerDetailsService: CustomerDetailsService) { }
 
   ngOnInit() {
+    this.getCustamerDetails();
+  }
+
+  getCustamerDetails() {
+    this.customerDetailsService.getDetails().subscribe(data => {
+      if (data && data.customers) {
+        this.customerDetails = data.customers;
+      }
+    }, (error) => {
+      console.error('Error:', error);
+    });
   }
 
 }

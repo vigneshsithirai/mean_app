@@ -8,7 +8,8 @@ module.exports.getCustomerDetails = function (req, res) {
             '$project':
                 {
                     'CustomerID': 1,
-                    'CompanyName': 1
+                    'CompanyName': 1,
+                    'Phone': 1
                 }
         },
         { '$skip': 5 },
