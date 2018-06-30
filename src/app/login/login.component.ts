@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
   public login() {
     if (this.loginForm.valid) {
       this.loginService.login(this.loginForm.value).subscribe(data => {
-        if (data && data.token) {
-          localStorage.setItem('token', data.token);
+        if (data && data['token']) {
+          localStorage.setItem('token', data['token']);
           this.router.navigateByUrl('/home');
         }
       }, (error) => {

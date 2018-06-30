@@ -17,8 +17,8 @@ export class CustomerDetailsComponent implements OnInit {
 
   getCustamerDetails() {
     this.customerDetailsService.getDetails().subscribe(data => {
-      if (data && data.customers) {
-        this.customerDetails = data.customers;
+      if (data && data['customers']) {
+        this.customerDetails = data['customers'];
       }
     }, (error) => {
       console.error('Error:', error);

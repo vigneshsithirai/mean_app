@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, CanActivate } from '@angular/router';
 import {
   MatInputModule, MatDialogModule, MatButtonModule, MatCardModule, MatDialogConfig, MatRadioModule,
@@ -35,6 +35,7 @@ import { LoginComponent } from './login/login.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
+import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
     PublicRouteGaurdService,
     CustomerDetailsService,
     MatDialogConfig,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
   ], // Add the posts service
   bootstrap: [PublicComponent],
   entryComponents: [MyDialogComponent]

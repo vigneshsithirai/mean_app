@@ -8,6 +8,7 @@ const passport = require('passport');
 // Get our API routes
 const api = require('./server/routes/api');
 const cust = require('./server/routes/customers');
+const tokenManager = require('./server/middleware/tokenmanager');
 
 require('./server/config/passport');
 
@@ -16,7 +17,17 @@ const app = express();
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    //intercepts OPTIONS method
+    if ('OPTIONS' === req.method) {
+        //respond with 200
+        res.send(200);
+    }
+    else {
+        //move on
+        next();
+    }
 });
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -27,9 +38,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(passport.initialize());
 
+// app.use(function (req, res, next) {
+//     tokenManager.verifyToken(req,res,next);
+// })
+
 // Set our api routes
 app.use('/api', api);
-app.use('/customers', cust);
+app.use('/customers', tokenManager.verifyToken, cust);
 // app.use(app.router);
 // routes.initialize(app);
 // Catch all other routes and return the index file
