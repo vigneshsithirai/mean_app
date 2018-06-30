@@ -1,7 +1,7 @@
-import { PostsService } from './../posts.service';
+import { PostsService } from './../../posts.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { CustomValidators } from '../common/custom_form_validator';
+import { CustomValidators } from '../../common/custom_form_validator';
 
 @Component({
   selector: 'app-formvalidation',

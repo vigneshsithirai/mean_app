@@ -1,6 +1,6 @@
 import { AlertComponent } from './../alert/alert.component';
 import { Component, OnInit, forwardRef, Inject, ViewChild } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-home',

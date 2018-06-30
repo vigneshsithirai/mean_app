@@ -14,7 +14,7 @@ import {
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 import { PostsService } from './posts.service';
 import { LoginService } from './services/login.service';
@@ -24,16 +24,16 @@ import { PublicRouteGaurdService } from './services/public-route-gaurd.service';
 import { CustomerDetailsService } from './services/customer-details.service';
 
 
-import { HomeComponent } from './home/home.component';
-import { PublicComponent } from './public/public.component';
-import { AlertComponent } from './alert/alert.component';
-import { DialogDemoComponent } from './dialog-demo/dialog-demo.component';
-import { MyDialogComponent } from './my-dialog/my-dialog.component';
-import { FormvalidationComponent } from './formvalidation/formvalidation.component';
-import { SampleComponent } from './sample/sample.component';
-import { LoginComponent } from './login/login.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { HomeComponent } from './components/home/home.component';
+import { PublicComponent } from './components/public/public.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { DialogDemoComponent } from './components/dialog-demo/dialog-demo.component';
+import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
+import { FormvalidationComponent } from './components/formvalidation/formvalidation.component';
+import { SampleComponent } from './components/sample/sample.component';
+import { LoginComponent } from './components/login/login.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 

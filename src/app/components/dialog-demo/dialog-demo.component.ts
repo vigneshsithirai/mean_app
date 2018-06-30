@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
-import { MyDialogComponent } from './../my-dialog/my-dialog.component';
-@Component({
-  selector: 'app-sample',
-  templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.css']
-})
-export class SampleComponent implements OnInit {
+import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 
+@Component({
+  selector: 'app-dialog-demo',
+  templateUrl: './dialog-demo.component.html',
+  styleUrls: ['./dialog-demo.component.css']
+})
+export class DialogDemoComponent implements OnInit {
+  dialogResult: any;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
   openDialog() {
-    let dialogResult;
     const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     // dialogConfig.autoFocus = true;
     const dialogRef: MatDialogRef<MyDialogComponent> = this.dialog.open(MyDialogComponent, {
       // width: '250px',
@@ -25,7 +25,7 @@ export class SampleComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog closed: ${result}`);
-      dialogResult = result;
+      this.dialogResult = result;
     });
   }
 }

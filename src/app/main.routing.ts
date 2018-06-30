@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { routes } from './routes/secure-route';
 import { PUBLIC_ROUTES } from './routes/public-route';
-import { PublicComponent } from './public/public.component';
+import { PublicComponent } from './components/public/public.component';
 
 
 const appRoutes: Routes = [
