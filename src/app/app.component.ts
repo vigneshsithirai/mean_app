@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'app works!';
   events: string[] = [];
   opened: boolean;
+  over:any = 'over';
   constructor(public router: Router) {}
 
   public navigateMenu() {
