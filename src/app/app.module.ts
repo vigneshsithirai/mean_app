@@ -37,6 +37,8 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
 
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 
+import { ToStringPipe } from './pipes/string.pipe';
+import { ImpurePipe } from './pipes/impure.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
     FormvalidationComponent,
     SampleComponent,
     SideNavComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    ToStringPipe,
+    ImpurePipe
   ],
   imports: [
     routing,

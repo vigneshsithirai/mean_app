@@ -1,8 +1,14 @@
-<!-- <app-side-nav></app-side-nav> -->
-<input type="text" placeholder="Name" (change)="onchange($event)" [(ngModel)] ="user.name"  [value]= "name"  /><br>
-<input type="text" placeholder="Password" [(ngModel)] ="user.passwor" /><br>
-<input type="button" value="Save" (click)= "save($event)" /><br>
 <div>
-    {{user.name}}
+    <p>
+        {{obj.age | toString}}
+    </p>
+    <p>
+        {{obj.age | impurePipe}}
+    </p>
 </div>
-
+<div>
+    <mat-input-container>
+        <input matInput type="number" [(ngModel)]='obj.age'>
+    </mat-input-container>
+    <button mat-button color="primary" (click)="changeName()">Primary</button>
+</div>

@@ -8,34 +8,26 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public inputVar: string;
-  public eventReciv: any = 0;
-  public user:any = {name:"Rajan"};
-  name = "test1223";
+  private obj = {
+    'name': 'John',
+    'age': 30,
+    'car': null
+  };
+  public myName = 1;
   @ViewChild(AlertComponent) alertComponent: AlertComponent;
   constructor(@Inject(forwardRef(() => AppComponent)) private _parent: AppComponent) {
     this._parent.title = 'title changed';
-    this.inputVar = 'input from parent';
   }
 
   ngOnInit() {
+    // setInterval(()=> {
+    //   this.obj.age = this.obj.age + 1;
+    // }, 2000);
   }
   clickFunction() {
     this.alertComponent.changeHeadLine();
   }
-  receiveEvent() {
-    this.eventReciv = this.eventReciv + 1;
-  }
-  onchange($event) {
-    this.name =  $event.target.value;
-    console.log("Before",this.name);
-  }
-  save($event) {
-  
-    this.user.name = "www";
-    console.log("After",this.name, this.user);
-    setTimeout(()=> {
-      // this.user.name = "Sample";
-    },2000);
+  changeName() {
+    this.myName = this.obj.age;
   }
 }
