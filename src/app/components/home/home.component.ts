@@ -8,7 +8,7 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private obj = {
+  public obj = {
     'name': 'John',
     'age': 30,
     'car': null
