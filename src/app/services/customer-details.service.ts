@@ -8,7 +8,7 @@ export class CustomerDetailsService {
   constructor(private http: HttpClient) { }
 
   getDetails() {
-    return this.http.get('http://localhost:3070/customers/details').map(res => {
+    return this.http.get('customers/details').map(res => {
       return res;
     });
   }
