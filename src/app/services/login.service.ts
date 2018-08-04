@@ -8,7 +8,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(data) {
-    return this.http.post('http://localhost:3070/api/login', data);
+    return this.http.post('/api/login', data);
   }
 
 }
