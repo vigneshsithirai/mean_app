@@ -6,8 +6,9 @@ const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
 
 var mongoose = require('mongoose');
+var DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/Northwind'
 //mongoose.connect('mongodb://localhost/Northwind');
-mongoose.connect('mongodb://vigneshsithirai:Ajith_08@ds137687.mlab.com:37687/mean-app-25');
+mongoose.connect(DATABASE_URL);
 
 var User = require('../models/user');
 require('../models/customers');
