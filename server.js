@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const passport = require('passport');
 // Get our API routes
-const api = require('./server/routes/api');
+const user = require('./server/routes/user');
 const cust = require('./server/routes/customers');
 const tokenManager = require('./server/middleware/tokenmanager');
 
@@ -43,7 +43,7 @@ app.use(passport.initialize());
 // })
 
 // Set our api routes
-app.use('/api', api);
+app.use('/api', user);
 app.use('/customers', tokenManager.verifyToken, cust);
 // app.use(app.router);
 // routes.initialize(app);

@@ -5,11 +5,6 @@ const router = express.Router();
 const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
 
-var mongoose = require('mongoose');
-var DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/Northwind'
-//mongoose.connect('mongodb://localhost/Northwind');
-mongoose.connect(DATABASE_URL);
-
 var User = require('../models/user');
 require('../models/customers');
 var passport = require('passport');
