@@ -5,6 +5,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 const passport = require('passport');
+const config = require('./server/config/config');
 // Get our API routes
 const user = require('./server/routes/user');
 const cust = require('./server/routes/customers');
